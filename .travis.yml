@@ -1,0 +1,10 @@
+sudo:required
+services:
+  - docker
+
+before_Install:
+  - docker build -t turkialq/docker-react -f Dockerfile.dev .
+
+scripts:
+  - docker run -e CI=true turkialq/docker-react yarn test
+
